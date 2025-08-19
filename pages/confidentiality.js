@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Layout from "../components/Layout";
 
 export default function Confidentiality() {
   return (
-    <Layout>
+    <>
       <Head>
         <title>Privacy Policy & Confidentiality - HelpingCloud</title>
         <meta name="description" content="Privacy Policy and Confidentiality Statement for HelpingCloud. Learn how we protect your data and maintain confidentiality." />
@@ -181,6 +180,6 @@ export default function Confidentiality() {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }

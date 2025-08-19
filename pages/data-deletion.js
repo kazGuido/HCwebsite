@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Layout from "../components/Layout";
 
 export default function DataDeletion() {
   return (
-    <Layout>
+    <>
       <Head>
         <title>Data Deletion Instructions - HelpingCloud</title>
         <meta name="description" content="Learn how to request deletion of your personal data from HelpingCloud. Clear instructions for data removal requests." />
@@ -232,6 +231,6 @@ export default function DataDeletion() {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 }
