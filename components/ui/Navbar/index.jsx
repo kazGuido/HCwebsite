@@ -21,6 +21,11 @@ const Navbar = () => {
         { title: "Request a Demo", path: "/request-demo" },
     ];
 
+    const legalLinks = [
+        { title: "Privacy Policy", path: "/confidentiality" },
+        { title: "Data Deletion", path: "/data-deletion" },
+    ];
+
     useEffect(() => {
         // Close the navbar menu when navigate
         const handleState = () => {
@@ -62,6 +67,25 @@ const Navbar = () => {
                     </div>
                     <div className={`flex-1 pb-3 mt-8 md:pb-0 md:mt-0 md:block ${state ? "" : "hidden"}`}>
                         <ul className="text-gray-700 justify-end items-center space-y-6 md:flex md:space-x-6 md:space-y-0 md:text-gray-600 md:font-medium">
+                            {/* Mobile Legal Links */}
+                            <li className="md:hidden">
+                                <div className="border-t border-gray-200 pt-4 mt-4">
+                                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Legal</p>
+                                    {
+                                        legalLinks.map((item, idx) => {
+                                            return (
+                                                <Link
+                                                    key={idx}
+                                                    href={item.path}
+                                                    className="block py-2 text-sm text-gray-600 hover:text-gray-900"
+                                                >
+                                                    {item.title}
+                                                </Link>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </li>
                             {
                                 navigation.map((item, idx) => {
                                     return (
@@ -76,6 +100,29 @@ const Navbar = () => {
                                     )
                                 })
                             }
+                            <li className="relative group">
+                                <button className="flex items-center duration-150 hover:text-gray-900">
+                                    Legal
+                                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                    {
+                                        legalLinks.map((item, idx) => {
+                                            return (
+                                                <Link
+                                                    key={idx}
+                                                    href={item.path}
+                                                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                                >
+                                                    {item.title}
+                                                </Link>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </li>
                             <li>
                                 <NavLink
                                     href="/get-started"
