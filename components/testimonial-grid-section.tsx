@@ -1,6 +1,22 @@
 import Image from "next/image"
 
-const testimonials = [
+interface Testimonial {
+  quote: string
+  name: string
+  company: string
+  avatar: string
+  type: string
+}
+
+interface TestimonialCardProps {
+  quote: string
+  name: string
+  company: string
+  avatar: string
+  type: string
+}
+
+const testimonials: Testimonial[] = [
   {
     quote:
       "The real-time code suggestions from Pointer feel like having a senior engineer reviewing every line of code as you write. The accuracy of its recommendations has improved our overall code quality, reduced review time.",
@@ -19,7 +35,7 @@ const testimonials = [
   },
   {
     quote:
-      "Pointer’s multi-agent coding feature has been a game changer. We’re fixing complex bugs in hours instead of spending entire sprints on them.",
+      "Pointer's multi-agent coding feature has been a game changer. We're fixing complex bugs in hours instead of spending entire sprints on them.",
     name: "Cameron Williamson",
     company: "IBM",
     avatar: "/images/avatars/cameron-williamson.png",
@@ -35,7 +51,7 @@ const testimonials = [
   },
   {
     quote:
-      "We started with the free plan just to test it out, but within a week we upgraded to Pro. Now, we can’t imagine coding without it",
+      "We started with the free plan just to test it out, but within a week we upgraded to Pro. Now, we can't imagine coding without it",
     name: "Darlene Robertson",
     company: "Ferrari",
     avatar: "/images/avatars/darlene-robertson.png",
@@ -43,7 +59,7 @@ const testimonials = [
   },
   {
     quote:
-      "Collaborative coding feels effortless now. With Pointer’s real-time previews, pair programming has become faster and more productive.",
+      "Collaborative coding feels effortless now. With Pointer's real-time previews, pair programming has become faster and more productive.",
     name: "Cody Fisher",
     company: "Apple",
     avatar: "/images/avatars/cody-fisher.png",
@@ -59,7 +75,7 @@ const testimonials = [
   },
 ]
 
-const TestimonialCard = ({ quote, name, company, avatar, type }) => {
+const TestimonialCard = ({ quote, name, company, avatar, type }: TestimonialCardProps) => {
   const isLargeCard = type.startsWith("large")
   const avatarSize = isLargeCard ? 48 : 36
   const avatarBorderRadius = isLargeCard ? "rounded-[41px]" : "rounded-[30.75px]"
